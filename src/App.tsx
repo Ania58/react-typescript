@@ -1,17 +1,11 @@
 import Header from "./components/Header.tsx";
 import goalsImg from './assets/goals.jpg';
 import CourseGoals from "./components/CourseGoals.tsx";
+import { useState } from "react";
 
 function App() {
-  
-
-  return (
-    <main>
-      <Header image={({src: goalsImg, alt:'A list of goals'})}>
-        <h1>Your Course Goals</h1>
-      </Header>
-      <CourseGoals 
-      goals={[
+  const [goals, setGoals] = useState(
+    [
         {
           id:1, 
           title: 'Learn TS', 
@@ -22,7 +16,22 @@ function App() {
           title: 'Practice TS', 
           description: 'Practice working with TypeScript'
         }
-      ]} />
+      ]
+  );
+
+  function handleDeleteGoal(id: number) {
+    setGoals((prevGoals) => prevGoals.filter(g => g.id !== id));
+  }
+
+  return (
+    <main>
+      <Header image={({src: goalsImg, alt:'A list of goals'})}>
+        <h1>Your Course Goals</h1>
+      </Header>
+      <CourseGoals 
+      goals={goals} 
+      onDelete={handleDeleteGoal}
+      />
     </main>
   )
 }
