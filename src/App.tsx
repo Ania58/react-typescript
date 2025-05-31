@@ -6,7 +6,9 @@ function App() {
 
   return (
     <main>
-      <Header image={({src: goalsImg, alt:'A list of goals'})}/>
+      <Header image={({src: goalsImg, alt:'A list of goals'})}>
+        <h1>Your Course Goals</h1>
+      </Header>
     </main>
   )
 }
