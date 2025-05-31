@@ -1,11 +1,13 @@
+import Header from "./components/Header.tsx";
+import goalsImg from './assets/goals.jpg';
 
 function App() {
   
 
   return (
-    <>
-      <h1>Hello World!</h1>
-    </>
+    <main>
+      <Header image={({src: goalsImg, alt:'A list of goals'})}/>
+    </main>
   )
 }
 
